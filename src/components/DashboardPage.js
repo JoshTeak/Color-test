@@ -6,9 +6,8 @@ class DashboardPage extends React.Component {
 		super(props);
 
 		this.coloursObject = require('../../public/colours.json');
-		this.state = {}
+		this.state = {lengthError: false, inputError: false}
 		this.colour = null;
-		this.error = false;
 	}
 
 	componentDidMount() {
@@ -27,14 +26,16 @@ class DashboardPage extends React.Component {
 	colourEntered = () => {
 		if(this.colour.length != 7)
 		{
-			console.log("Invalid length of the input hex value!")
-			this.error = true;
+			this.setState(() => ({lengthError: true}))
 			return;
-		} 
+		} else {
+			this.setState(() => ({lengthError: false}))
+		}
 		if (/[0-9a-f]{6}/i.test(this.colour) != true) {
-		    console.log("Invalid digits in the input hex value!");
-		    this.error = true;
+		    this.setState(() => ({inputError: true}))
 		    return; 
+		} else {
+			this.setState(() => ({inputError: false}))
 		}
 		
 		const tempColour = this.colour;
@@ -124,6 +125,14 @@ class DashboardPage extends React.Component {
 			<div className="main">
 			    <h1>Colors</h1>
 			    <input id="colour-input"></input>
+			    {console.log(this.state.lengthError)}
+			    {console.log(this.state.inputError)}
+			    {
+			    	this.state.lengthError ? <p className="error">*Invalid length of the input hex value</p>: ''
+			    }
+			    {
+			    	this.state.inputError ? <p className="error">*Invalid digits in the input hex value</p>: ''
+			    }
 			    <button id="submit" onClick={this.colourEntered}>Submit</button>
 			    <lo>
 			    	<li className="heading-list-item">
