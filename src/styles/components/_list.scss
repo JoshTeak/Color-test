@@ -1,63 +1,71 @@
-.list-header {
-  background: $off-white;
-  border: 1px solid darken($off-white, 7%);
-  color: $grey;
+.main {
+  margin-left: 3rem;
+  @media (max-width: $desktop-breakpoint) {
+      margin-left: 1rem;
+  }
+}
+
+.colour-block {
+  width: 6rem;
+  height: 3rem;
+  @media (max-width: $desktop-second-breakpoint) {
+    width: 4rem;
+    height: 2rem;
+  }
+}
+
+.colour-list-item {
   display: flex;
-  justify-content: space-between;
-  padding: $s-size $m-size;
-}
-
-.list-body {
-  margin-bottom: $m-size;
-  @media (min-width: $desktop-breakpoint) {
-    margin-bottom: $l-size;
-  }
-}
-
-.list-item {
-  border: 1px solid darken($off-white, 7%);
-  border-top: none;
-  color: $dark-grey;
-  display: flex;
-  flex-direction: column;
-  padding: $s-size;
-  text-decoration: none;
-  transition: background .3s ease;
-  &:hover {
-    background: $off-white;
-  }
-  @media (min-width: $desktop-breakpoint) {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: $m-size;
-  }
-}
-
-.list-item--message {
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: flex-start;
   align-items: center;
-  color: $grey;
-  justify-content: center;
-  padding: $m-size;
-  &:hover {
-    background: none;
+  height: 4rem;
+  @media (max-width: $desktop-second-breakpoint) {
+    height: 3rem;
   }
 }
 
-.list-item__title {
-  margin: 0;
-  word-break: break-all;
+.heading-list-item {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
 }
 
-.list-item__sub-title {
-  color: $grey;
-  font-size: $font-size-small;
-}
-
-.list-item__data {
-  margin: $s-size 0 0 0;
-  @media (min-width: $desktop-breakpoint) {
-    margin: 0;
-    padding-left: $s-size;
+.column {
+  overflow: hidden;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+  @media (max-width: $desktop-breakpoint) {
+    margin-right: 1rem;
+    font-size: 1.3rem;
   }
+  @media (max-width: $desktop-second-breakpoint) {
+    font-size: 1rem;
+  }
+}
+
+.first-column {
+  width: 6rem;
+}
+
+.second-column {
+  width: 13rem;
+}
+
+.third-column {
+  width: 9rem;
+}
+
+.fourth-column {
+  width: 10rem;
+}
+
+.fifth-column {
+  width: 11rem;
 }
