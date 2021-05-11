@@ -14,7 +14,8 @@ body {
 }
 
 button {
-  cursor: pointer;
+  cursor: pointer; 
+  display: none;
 }
 
 button:disabled {
